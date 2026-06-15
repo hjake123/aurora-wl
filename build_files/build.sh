@@ -26,12 +26,13 @@ set -ouex pipefail
 # Install the akmod-wl driver, copied in the Containerfile
 echo "Installing Broadcom wl wireless drivers..."
 
-# Find all 'wl' related RPMs (both the compiled kmod and the common dependencies)
-# We exclude "akmod-wl" to prevent installing source compilers
-WL_RPMS=$(find /opt/akmods-rpms -type f -name "*wl*.rpm" ! -name "akmod-wl*")
+echo "Driver files include:"
+find /opt/akmods-rpms -type f | sort
 
-# Install the found RPMs
-dnf5 install -y $WL_RPMS
+
+dnf5 install -y \
+    /opt/akmods-rpms/common/broadcom-wl-*.rpm \
+    /opt/akmods-rpms/common/akmod-wl-*.rpm
 
 # Cleanup rpms
 rm -rf /opt/akmods-rpms
