@@ -25,4 +25,5 @@ set -ouex pipefail
 
 # Install the akmod-wl driver, copied in the Containerfile
 echo "Installing Broadcom 'wl' wireless drivers..."
-dnf5 install -y /tmp/akmods-rpms/kmods/*wl*.rpm
+dnf5 install -y /opt/akmods-rpms/kmods/*wl*.rpm
+rm -rf /opt/akmods-rpms
