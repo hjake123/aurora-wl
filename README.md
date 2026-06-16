@@ -1,5 +1,7 @@
 # aurora-wl
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/hjake123/aurora-wl/build.yml)
+
 This image is intended to be a version of Aurora latest with the Broadcom wl driver included.
 If you happen to have one of the chips that is only well served by wl, this is for you!
 
